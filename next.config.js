@@ -1,4 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {};
 
-module.exports = nextConfig
+module.exports = {
+	images: {
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "bregnballe-portfolio.s3.eu-central-1.amazonaws.com",
+				port: "",
+				pathname: "**",
+			},
+		],
+	},
+};
