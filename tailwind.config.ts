@@ -13,6 +13,10 @@ const config: Config = {
 				"gradient-conic":
 					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 			},
+			aspectRatio: {
+				"1/1": "1 / 1",
+				"3/4": "3 / 4",
+			},
 		},
 	},
 	plugins: [require("@tailwindcss/container-queries")],

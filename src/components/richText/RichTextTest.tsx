@@ -1,3 +1,4 @@
+import GalleryImage from "../GalleryImage";
 import escapeHTML from "escape-html";
 import {
 	IS_REGULAR,
@@ -12,8 +13,6 @@ import {
 import type { SerializedLexicalNode } from "./types";
 
 export function RichTextTest({ content }: any) {
-	console.log("RichTextTest content:", content.type);
-
 	const renderChildren = () =>
 		content?.children?.map((child: any, i: any) => (
 			<RichTextTest content={child} key={i} />
@@ -31,10 +30,36 @@ export function RichTextTest({ content }: any) {
 			}
 		case "listitem":
 			return <li>{renderChildren()}</li>;
+		case "linebreak":
+			return <br />;
+		case "heading":
+			switch (content.tag) {
+				case "h1":
+					return <h1>{renderChildren()}</h1>;
+				case "h2":
+					return <h2>{renderChildren()}</h2>;
+				case "h3":
+					return <h3>{renderChildren()}</h3>;
+				case "h4":
+					return <h4>{renderChildren()}</h4>;
+				case "h5":
+					return <h5>{renderChildren()}</h5>;
+				case "h6":
+					return <h6>{renderChildren()}</h6>;
+			}
+
 		case "block":
 			switch (content.fields.blockType) {
 				case "Gallery Image":
-					return `<p>Gallery Image</p>`;
+					return (
+						<GalleryImage
+							primaryImagePosition={content.fields.primaryImagePosition}
+							aspectRatio={content.fields.aspectRatio}
+							primaryImage={content.fields.primaryImage}
+							secondaryImage={content.fields.secondaryImage}
+							tertiaryImage={content.fields.tertiaryImage}
+						/>
+					);
 			}
 
 		default:
