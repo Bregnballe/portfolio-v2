@@ -30,7 +30,7 @@ export default async function Page() {
 	const projects: Project[] = data.docs;
 
 	return (
-		<div className="flex justify-center	w-screen">
+		<div className="flex justify-center	w-screen mx-2">
 			{projects.length === 0 ? (
 				<div> Loading... </div>
 			) : (

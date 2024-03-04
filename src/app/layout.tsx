@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 

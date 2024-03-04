@@ -31,8 +31,6 @@ export default async function Page({
 }: {
 	params: { project: string };
 }) {
-	console.log("params", params);
-
 	async function lexicalToHTML(editorData: SerializedEditorState) {
 		try {
 			//console.log("editorData:", editorData);
@@ -74,18 +72,14 @@ export default async function Page({
 
 	const data = await getProject();
 	const project: Project = data.docs[0];
-	const htmlString = await lexicalToHTML(project.description);
-	console.log("htmlString:", htmlString);
+	//const htmlString = await lexicalToHTML(project.description);
 
 	const descriptionContent = project.description.root;
-	console.log("descriptionContent:", descriptionContent);
-
-	//const test = serialize(descriptionContent);
-	//console.log("test:", test);
+	//console.log("descriptionContent:", descriptionContent);
 
 	return (
 		<div className="flex justify-center w-screen">
-			<div className="flex-col max-w-screen-sm">
+			<div className="flex-col max-w-screen-sm mx-8">
 				{project ? (
 					<Image
 						className=""
